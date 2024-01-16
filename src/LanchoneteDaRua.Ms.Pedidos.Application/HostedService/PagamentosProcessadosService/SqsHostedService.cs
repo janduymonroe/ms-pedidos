@@ -1,5 +1,4 @@
-﻿using Amazon.SQS.Model;
-using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.AtualizarStatusPedido;
+﻿using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.AtualizarStatusPedido;
 using LanchoneteDaRua.Ms.Pedidos.Infrastructure.MessageBus;
 using MediatR;
 using Microsoft.Extensions.Hosting;

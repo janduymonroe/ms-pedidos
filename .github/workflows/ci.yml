@@ -28,7 +28,7 @@ jobs:
 
     steps:
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ../../LanchoneteDaRua.Ms.Pedidos.sln --no-build --verbosity normal
 
     - name: Install SonarScanner
       run: dotnet tool install --global dotnet-sonarscanner

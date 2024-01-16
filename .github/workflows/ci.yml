@@ -4,47 +4,37 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - '**.cs'
+      - '**.csproj'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
-
-    env:
-      BUILD_CONFIG: 'Release'
-      SOLUTION: 'LanchoneteDaRua.Ms.Pedidos.sln'
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
       run: dotnet restore
+
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore 
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Test
-      run: dotnet test /p:Configuration=$BUILD_CONFIG --no-build --verbosity normal
+      run: dotnet test  --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
     - name: Install SonarScanner
       run: dotnet tool install --global dotnet-sonarscanner
 
     - name: Begin SonarQube scan
-      run: dotnet sonarscanner begin /k:"../../test/LanchoneteDaRua.Ms.Pedidos.Tests" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="YourSonarQubeUrl"
-
-    - name: Build and analyze
-      run: dotnet build --no-restore
+      run: dotnet sonarscanner begin /k:"../../test/LanchoneteDaRua.Ms.Pedidos.Tests" /d:sonar.login="{{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="YourSonarQubeUrl"
 
     - name: End SonarQube scan
       run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
@@ -58,12 +48,12 @@ jobs:
         fi
 
   deploy:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1

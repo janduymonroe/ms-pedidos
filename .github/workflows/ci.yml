@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: src/LanchoneteDaRua.Ms.Pedidos.Api
+        working-directory: ./
 
     env:
       BUILD_CONFIG: 'Release'
@@ -35,7 +35,7 @@ jobs:
 
     steps:
     - name: Test
-      run: dotnet test ../../${{ SOLUTION }} /p:Configuration=$BUILD_CONFIG --no-build --verbosity normal
+      run: dotnet test /p:Configuration=$BUILD_CONFIG --no-build --verbosity normal
 
     - name: Install SonarScanner
       run: dotnet tool install --global dotnet-sonarscanner

@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     steps:
     - name: Checkout code
@@ -32,7 +34,6 @@ jobs:
       with:
         organization: "janjao-enterprise-corp"
         project: "janjao-enterprise-corp-lanchonete-da-rua"
-        token: "{{ SONAR_TOKEN }}"
 
     - name: Check Code Coverage
       run: |

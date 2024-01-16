@@ -34,7 +34,7 @@ jobs:
       run: dotnet tool install --global dotnet-sonarscanner
 
     - name: Begin SonarQube scan
-      run: dotnet sonarscanner begin /k:"../../test/LanchoneteDaRua.Ms.Pedidos.Tests" /d:sonar.login="{{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="YourSonarQubeUrl"
+      run: dotnet sonarscanner begin /k:"../../test/LanchoneteDaRua.Ms.Pedidos.Tests" /d:sonar.login="{{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
 
     - name: End SonarQube scan
       run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

@@ -34,7 +34,7 @@ jobs:
       run: dotnet tool install --global dotnet-sonarscanner
 
     - name: Begin SonarQube scan
-      run: dotnet sonarscanner begin /k:"LanchoneteDaRua.Ms.Pedidos.Tests" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="YourSonarQubeUrl"
+      run: dotnet sonarscanner begin /k:"../../test/LanchoneteDaRua.Ms.Pedidos.Tests" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="YourSonarQubeUrl"
 
     - name: Build and analyze
       run: dotnet build --no-restore
@@ -44,7 +44,7 @@ jobs:
 
     - name: Check coverage
       run: |
-        COVERAGE=$(coverlet LanchoneteDaRua.Ms.Pedidos.Tests.dll --target "dotnet" --targetargs "test LanchoneteDaRua.Ms.Pedidos.Tests.csproj --no-build" --format opencover | grep "Total" | awk '{print $4}')
+        COVERAGE=$(coverlet LanchoneteDaRua.Ms.Pedidos.Tests.dll --target "dotnet" --targetargs "test LanchoneteDaRua.Ms.Pedidos.sln --no-build" --format opencover | grep "Total" | awk '{print $4}')
         if (( $(echo "$COVERAGE < 80" | bc -l) )); then
           echo "Code coverage is less than 80%"
           exit 1

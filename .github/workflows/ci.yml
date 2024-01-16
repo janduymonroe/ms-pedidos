@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_PROJECT_KEY: "janjao-enterprise-corp-lanchonete-da-rua"
+      SONAR_ORGANIZATION: "janjao-enterprise-corp"
 
     steps:
     - name: Checkout code
@@ -31,9 +33,6 @@ jobs:
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
-      with:
-        organization: "janjao-enterprise-corp"
-        project: "janjao-enterprise-corp-lanchonete-da-rua"
 
     - name: Check Code Coverage
       run: |

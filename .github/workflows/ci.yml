@@ -27,7 +27,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build $SOLUTION --no-restore
+      run: dotnet build --no-restore
 
   test:
     needs: build

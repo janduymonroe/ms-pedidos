@@ -32,7 +32,7 @@ jobs:
 
     - name: Check Code Coverage
       run: |
-        coverage=$(awk -F '[<>]' '/<CoveragePercent>/ { print $3 }' ./TestResults/coverage.opencover.xml)
+        coverage=$(awk -F '[<>]' '/<SequenceCoverage>/ { print $3 }' ./test/LanchoneteDaRua.Ms.Pedidos.Tests/TestResults/coverage.opencover.xml)
         if (( $(echo "$coverage >= 80" | bc -l) )); then
           echo "Code coverage is greater than or equal to 80%."
         else

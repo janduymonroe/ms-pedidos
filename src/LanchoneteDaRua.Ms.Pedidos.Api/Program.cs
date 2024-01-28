@@ -1,6 +1,7 @@
 using LanchoneteDaRua.Ms.Pedidos.Api;
 using LanchoneteDaRua.Ms.Pedidos.Application;
 using LanchoneteDaRua.Ms.Pedidos.Infrastructure;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,4 +36,7 @@ app.UseEndpoints(endpoints =>
 app.UseHttpsRedirection();
 
 app.Run();
+
+[ExcludeFromCodeCoverage]
+public partial class Program { }
 

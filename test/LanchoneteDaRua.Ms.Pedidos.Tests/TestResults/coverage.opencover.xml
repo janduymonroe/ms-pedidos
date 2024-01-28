@@ -2,16 +2,16 @@
 <CoverageSession>
   <Summary numSequencePoints="354" visitedSequencePoints="290" numBranchPoints="19" visitedBranchPoints="6" sequenceCoverage="81.92" branchCoverage="31.57" maxCyclomaticComplexity="73" minCyclomaticComplexity="0" visitedClasses="42" numClasses="50" visitedMethods="104" numMethods="124" />
   <Modules>
-    <Module hash="063F85D8-A618-44AF-A5A3-A3648A37FF2A">
+    <Module hash="81537811-AE3F-4B02-84B8-536178A235D9">
       <ModulePath>LanchoneteDaRua.Ms.Pedidos.Api.dll</ModulePath>
-      <ModuleTime>2024-01-28T02:00:19</ModuleTime>
+      <ModuleTime>2024-01-28T02:24:36</ModuleTime>
       <ModuleName>LanchoneteDaRua.Ms.Pedidos.Api</ModuleName>
       <Files />
       <Classes />
     </Module>
-    <Module hash="95CE18E1-6C0F-4677-A8EE-4EDD422F93C2">
+    <Module hash="A927E42F-DA0A-4D79-AD89-4946C2BCF36D">
       <ModulePath>LanchoneteDaRua.Ms.Pedidos.Application.dll</ModulePath>
-      <ModuleTime>2024-01-28T02:00:19</ModuleTime>
+      <ModuleTime>2024-01-28T02:24:36</ModuleTime>
       <ModuleName>LanchoneteDaRua.Ms.Pedidos.Application</ModuleName>
       <Files>
         <File uid="1" fullPath="/mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Application/HostedService/PagamentosProcessadosService/SqsHostedService.cs" />
@@ -1095,9 +1095,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="5BF5D7AC-D498-43D3-B854-7E64AF086A00">
+    <Module hash="2B8C1F28-E240-43F5-8806-E93EF800FFBC">
       <ModulePath>LanchoneteDaRua.Ms.Pedidos.Domain.dll</ModulePath>
-      <ModuleTime>2024-01-28T02:00:19</ModuleTime>
+      <ModuleTime>2024-01-28T02:24:36</ModuleTime>
       <ModuleName>LanchoneteDaRua.Ms.Pedidos.Domain</ModuleName>
       <Files>
         <File uid="23" fullPath="/mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Domain/ValueObjects/InformacaoDePagamento.cs" />
@@ -1642,9 +1642,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="E46E4BBD-ACDC-4A22-BA86-6C63F65372E5">
+    <Module hash="F6663072-EDB8-46DE-9E6D-54BB32A30852">
       <ModulePath>LanchoneteDaRua.Ms.Pedidos.Infrastructure.dll</ModulePath>
-      <ModuleTime>2024-01-28T02:00:19</ModuleTime>
+      <ModuleTime>2024-01-28T02:24:36</ModuleTime>
       <ModuleName>LanchoneteDaRua.Ms.Pedidos.Infrastructure</ModuleName>
       <Files>
         <File uid="30" fullPath="/mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Infrastructure/InfrastructureModule.cs" />

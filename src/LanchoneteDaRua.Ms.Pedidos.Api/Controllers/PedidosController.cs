@@ -7,10 +7,12 @@ using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.CriarPedido;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LanchoneteDaRua.Ms.Pedidos.Api.Controllers;
 
 [ApiController]
+[ExcludeFromCodeCoverage]
 [Route("api/v1/[controller]")]
 public class PedidosController : ControllerBase
 {

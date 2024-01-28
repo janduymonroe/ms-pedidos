@@ -28,17 +28,23 @@ jobs:
       run: |
         dotnet restore
         dotnet build --configuration Release
-        coverage=$(dotnet test --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover | grep 'Total line coverage' | cut -d ' ' -f4 | sed 's/%//')
-        echo "::set-output name=coverage::$coverage"
+        dotnet test --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/ /p:Exclude="[xunit.*]*"
+
+    - name: Generate Coverage Report
+      uses: danielpalme/ReportGenerator-GitHub-Action@4.8.12
+      with:
+        reports: './TestResults/coverage.opencover.xml'
+        targetdir: './TestResults/CoverageReport'
+        reporttypes: 'HtmlInline_AzurePipelines;Cobertura;Badges'
 
     - name: Check Code Coverage
       run: |
-        coverage=${{ steps.test.outputs.coverage }}
+        coverage=$(awk -F '[<>]' '/<CoveragePercent>/ { print $3 }' ./TestResults/coverage.opencover.xml)
         if (( $(echo "$coverage >= 80" | bc -l) )); then
-            echo "Code coverage is greater than or equal to 80%."
+          echo "Code coverage is greater than or equal to 80%."
         else
-            echo "Code coverage is $coverage less than 80%."
-            exit 1
+          echo "Code coverage is less than 80%."
+          exit 1
         fi
 
     - name: SonarCloud Scan

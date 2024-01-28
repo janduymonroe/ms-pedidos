@@ -1,0 +1,53 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  SpecFlowFeatureFiles: Application/UseCases/AtualizarPedidos/AtualizarPedidoHandler.feature;Application/UseCases/AtualizarStatusPedido/AtualizarStatusPedido.feature;Application/UseCases/BuscarFilaDePedidos/BuscarFilaDePedidos.feature;Application/UseCases/BuscarPedidoId/BuscarPedidoPorId.feature;Application/UseCases/CriarPedido/CriarPedido.feature;Infrastructure/InfraestructureModule.feature;Infrastructure/MessageBus/AwsSqsClient.feature;Infrastructure/MessageBus/EventProcessor.feature
+  -> Using specflow.json
+  SpecFlowGeneratedFiles: Application/UseCases/AtualizarPedidos/AtualizarPedidoHandler.feature.cs
+  SpecFlowGeneratedFiles: Application/UseCases/AtualizarStatusPedido/AtualizarStatusPedido.feature.cs
+  SpecFlowGeneratedFiles: Application/UseCases/BuscarFilaDePedidos/BuscarFilaDePedidos.feature.cs
+  SpecFlowGeneratedFiles: Application/UseCases/BuscarPedidoId/BuscarPedidoPorId.feature.cs
+  SpecFlowGeneratedFiles: Application/UseCases/CriarPedido/CriarPedido.feature.cs
+  SpecFlowGeneratedFiles: Infrastructure/InfraestructureModule.feature.cs
+  SpecFlowGeneratedFiles: Infrastructure/MessageBus/AwsSqsClient.feature.cs
+  SpecFlowGeneratedFiles: Infrastructure/MessageBus/EventProcessor.feature.cs
+  LanchoneteDaRua.Ms.Pedidos.Domain -> /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Domain/bin/Release/net8.0/LanchoneteDaRua.Ms.Pedidos.Domain.dll
+/usr/share/dotnet/sdk/8.0.100/Microsoft.Common.CurrentVersion.targets(2382,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "Microsoft.Extensions.Hosting.Abstractions". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors. [/mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Infrastructure/LanchoneteDaRua.Ms.Pedidos.Infrastructure.csproj]
+  LanchoneteDaRua.Ms.Pedidos.Infrastructure -> /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Infrastructure/bin/Release/net8.0/LanchoneteDaRua.Ms.Pedidos.Infrastructure.dll
+  LanchoneteDaRua.Ms.Pedidos.Application -> /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Application/bin/Release/net8.0/LanchoneteDaRua.Ms.Pedidos.Application.dll
+  LanchoneteDaRua.Ms.Pedidos.Api -> /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/src/LanchoneteDaRua.Ms.Pedidos.Api/bin/Release/net8.0/LanchoneteDaRua.Ms.Pedidos.Api.dll
+  LanchoneteDaRua.Ms.Pedidos.Tests -> /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/test/LanchoneteDaRua.Ms.Pedidos.Tests/bin/Release/net8.0/LanchoneteDaRua.Ms.Pedidos.Tests.dll
+Test run for /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/test/LanchoneteDaRua.Ms.Pedidos.Tests/bin/Release/net8.0/LanchoneteDaRua.Ms.Pedidos.Tests.dll (.NETCoreApp,Version=v8.0)
+Microsoft (R) Test Execution Command Line Tool Version 17.8.0 (x64)
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+-> Loading plugin /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/test/LanchoneteDaRua.Ms.Pedidos.Tests/bin/Release/net8.0/TechTalk.SpecFlow.xUnit.SpecFlowPlugin.dll
+-> Loading plugin /mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/test/LanchoneteDaRua.Ms.Pedidos.Tests/bin/Release/net8.0/LanchoneteDaRua.Ms.Pedidos.Tests.dll
+-> Using specflow.json
+
+Passed!  - Failed:     0, Passed:    17, Skipped:     0, Total:    17, Duration: 590 ms - LanchoneteDaRua.Ms.Pedidos.Tests.dll (net8.0)
+
+Calculating coverage result...
+  Generating report '/mnt/c/Users/janduymonroe/source/repos/ms-lanchonetedarua-pedidos/test/LanchoneteDaRua.Ms.Pedidos.Tests/coverage.opencover.xml'
+
++-------------------------------------------+--------+--------+--------+
+| Module                                    | Line   | Branch | Method |
++-------------------------------------------+--------+--------+--------+
+| LanchoneteDaRua.Ms.Pedidos.Api            | 100%   | 100%   | 100%   |
++-------------------------------------------+--------+--------+--------+
+| LanchoneteDaRua.Ms.Pedidos.Application    | 73.88% | 30%    | 77.94% |
++-------------------------------------------+--------+--------+--------+
+| LanchoneteDaRua.Ms.Pedidos.Domain         | 91.2%  | 14.28% | 97.43% |
++-------------------------------------------+--------+--------+--------+
+| LanchoneteDaRua.Ms.Pedidos.Infrastructure | 89.15% | 100%   | 76.47% |
++-------------------------------------------+--------+--------+--------+
+
++---------+--------+--------+--------+
+|         | Line   | Branch | Method |
++---------+--------+--------+--------+
+| Total   | 81.92% | 31.57% | 83.87% |
++---------+--------+--------+--------+
+| Average | 88.55% | 61.07% | 87.96% |
++---------+--------+--------+--------+
+

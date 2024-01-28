@@ -30,13 +30,6 @@ jobs:
         dotnet build --configuration Release
         dotnet test --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/ /p:Exclude="[xunit.*]*"
 
-    - name: Generate Coverage Report
-      uses: danielpalme/ReportGenerator-GitHub-Action@4.8.12
-      with:
-        reports: './TestResults/coverage.opencover.xml'
-        targetdir: './TestResults/CoverageReport'
-        reporttypes: 'HtmlInline_AzurePipelines;Cobertura;Badges'
-
     - name: Check Code Coverage
       run: |
         coverage=$(awk -F '[<>]' '/<CoveragePercent>/ { print $3 }' ./TestResults/coverage.opencover.xml)

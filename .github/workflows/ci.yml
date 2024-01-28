@@ -32,8 +32,8 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
-         sonar.projectKey: "janjao-enterprise-corp-lanchonete-da-rua"
-         sonar.organization: "janjao-enterprise-corp"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 
     - name: Check Code Coverage

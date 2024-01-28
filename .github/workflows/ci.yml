@@ -37,7 +37,7 @@ jobs:
         if (( $(echo "$coverage >= 80" | bc -l) )); then
             echo "Code coverage is greater than or equal to 80%."
         else
-            echo "Code coverage is less than 80%."
+            echo "Code coverage is $coverage less than 80%."
             exit 1
         fi
 

@@ -24,28 +24,27 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Build and Test
-      id: test
       run: |
         dotnet restore
         dotnet build --configuration Release
-        coverage=$(dotnet test --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover | grep 'Total line coverage' | cut -d ' ' -f4 | sed 's/%//')
-        echo "::set-output name=coverage::$coverage"
-
-    - name: Check Code Coverage
-      run: |
-        coverage=${{ steps.test.outputs.coverage }}
-        if (( $(echo "$coverage >= 80" | bc -l) )); then
-          echo "Code coverage is greater than or equal to 80%."
-        else
-          echo "Code coverage is less than 80%."
-          exit 1
-        fi
+        dotnet test --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+    - name: Check Code Coverage
+      run: |
+        coverage=$(bash <(curl -s https://codecov.io/bash) -f coverage.opencover.xml -X gcov)
+        if (( $(echo "$coverage >= 80" | bc -l) )); then
+          echo "Code coverage is greater than or equal to 80%."
+        else
+          echo "Code coverage is less than 80%."
+          exit 1
+        fi
 
   deploy:
     needs: build

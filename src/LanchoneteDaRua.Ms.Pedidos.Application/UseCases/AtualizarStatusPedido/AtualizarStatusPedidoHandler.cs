@@ -35,7 +35,7 @@ public class AtualizarStatusPedidoHandler : AbstractHandler<AtualizarStatusPedid
         {
             return new Response
             {
-                ErrorCode = HttpStatusCode.InternalServerError, ErrorMessages = $"Erro ao criar pedido - {ex.Message}"
+                ErrorCode = HttpStatusCode.InternalServerError, ErrorMessage = $"Erro ao criar pedido - {ex.Message}"
             };
         }
 

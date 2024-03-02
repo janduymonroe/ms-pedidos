@@ -33,12 +33,12 @@ public class AwsSqsClient : IMessageBusClient
         return response;
     }
 
-    public async Task<List<Message>> ReceiveMessagesAsync(string queue)
+    public async Task<List<Message>> ReceiveMessagesAsync(string queueUrl)
     {
-        var queueUrl = $"https://sqs.us-east-1.amazonaws.com/997423607772/{queue}";
+        var queue = $"https://sqs.us-east-1.amazonaws.com/997423607772/{queueUrl}";
         var receiveMessageResponse = await _sqsClient.ReceiveMessageAsync(new ReceiveMessageRequest
         {
-            QueueUrl = queueUrl,
+            QueueUrl = queue,
             MaxNumberOfMessages = 10,
             WaitTimeSeconds = 20
         });

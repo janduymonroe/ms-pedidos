@@ -14,6 +14,9 @@ public class EventProcessor : IEventProcessor
 
     public async void Process(IEnumerable<IDomainEvent> events)
     {
+        if(Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT") == "Development")
+            return;
+        
         foreach (var e in events.ToList())
         {
             var queueUrl = await _messageBusClient.CreateQueueAsync(e.QueueName);

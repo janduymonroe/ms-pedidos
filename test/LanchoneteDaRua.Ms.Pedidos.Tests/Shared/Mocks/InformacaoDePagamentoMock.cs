@@ -3,12 +3,12 @@ using LanchoneteDaRua.Ms.Pedidos.Domain.ValueObjects;
 
 namespace LanchoneteDaRua.Ms.Pedidos.Tests.Shared.Mocks;
 
-public class InformacaoDePagamentoMock
+public static class InformacaoDePagamentoMock
 {
     private static readonly string NomeCompleto = "Joao Testador";
-    private static readonly string NumeroDoCartao = "4565152625132541";
-    private static readonly string DataExpiracao = "07/2023";
-    private static readonly string Cvv = "450";
+    private static readonly string NumeroDoCartao = "4179873502570929";
+    private static readonly string DataExpiracao = "05/34";
+    private static readonly string Cvv = "210";
 
     public static InformacaoDePagamento InformacaoDePagamentoFake()
     {

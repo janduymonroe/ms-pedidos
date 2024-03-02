@@ -30,12 +30,10 @@ public class Pedido : AggregateRoot
     
     public void AtualizarPedido(Cliente cliente, InformacaoDePagamento informacaoDePagamento, List<PedidoItem> items, bool update)
     {
-        Id = Id;
         Total = items.Sum(item => item.Quantidade * item.Preco);
         Cliente = cliente;
         InformacaoDePagamento = informacaoDePagamento;
         Items = items;
-        CriadoEm = CriadoEm;
         Status = PedidoStatus.Recebido;
 
         AddEvent(new PedidoAtualizado(Id, Total, informacaoDePagamento, Cliente.NomeCompleto, Cliente.Email, FilasConsts.PedidoParaPagamento));

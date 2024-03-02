@@ -1,4 +1,5 @@
-﻿using LanchoneteDaRua.Ms.Pedidos.Application.UseCases;
+﻿using System.Diagnostics.CodeAnalysis;
+using LanchoneteDaRua.Ms.Pedidos.Application.UseCases;
 using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.AtualizarPedido;
 using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.AtualizarStatusPedido;
 using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.BuscarPedidoPorId;
@@ -30,7 +31,7 @@ public class PedidosController : ControllerBase
         var output = await _mediator.Send(input);
 
         if (output.HasError)
-            return StatusCode((int)output.ErrorCode, output.ErrorMessages);
+            return StatusCode((int)output.ErrorCode, output.ErrorMessage);
         
         return Accepted(output);
     }
@@ -40,12 +41,13 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [SwaggerOperation(Summary = "Busca um pedido por id")]
+    [SuppressMessage("ReSharper.DPA", "DPA0000: DPA issues")]
     public async Task<IActionResult> BuscarPorId([FromRoute] BuscarPedidoPorIdInput input)
     {
         var output = await _mediator.Send(input);
 
         if (output.HasError)
-            return StatusCode((int)output.ErrorCode, output.ErrorMessages);
+            return StatusCode((int)output.ErrorCode, output.ErrorMessage);
 
         return Ok(output);
     }
@@ -58,7 +60,7 @@ public class PedidosController : ControllerBase
         var output = await _mediator.Send(input);
 
         if (output.HasError)
-            return StatusCode((int)output.ErrorCode, output.ErrorMessages);
+            return StatusCode((int)output.ErrorCode, output.ErrorMessage);
 
         return Ok(output);
     }
@@ -74,7 +76,7 @@ public class PedidosController : ControllerBase
         var output = await _mediator.Send(input);
 
         if (output.HasError)
-            return StatusCode((int)output.ErrorCode, output.ErrorMessages);
+            return StatusCode((int)output.ErrorCode, output.ErrorMessage);
         
         return Accepted(output);
     }
@@ -89,8 +91,8 @@ public class PedidosController : ControllerBase
         var output = await _mediator.Send(input);
 
         if (output.HasError)
-            return StatusCode((int)output.ErrorCode, output.ErrorMessages);
+            return StatusCode((int)output.ErrorCode, output.ErrorMessage);
                 
-        return Accepted(output);
+        return Accepted();
     }
 }

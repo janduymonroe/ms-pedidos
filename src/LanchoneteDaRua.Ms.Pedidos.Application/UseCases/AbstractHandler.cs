@@ -15,7 +15,7 @@ public abstract class AbstractHandler<TRequest, TResponse> :
         return new TResponse
         {
             ErrorCode = statusCode,
-            ErrorMessages = string.Join(", ",errorMessages.Select(x => x))
+            ErrorMessage = string.Join(", ",errorMessages.Select(x => x))
         };
     }
 
@@ -24,7 +24,7 @@ public abstract class AbstractHandler<TRequest, TResponse> :
         return new TResponse
         {
             ErrorCode = statusCode,
-            ErrorMessages = errorMessages
+            ErrorMessage = errorMessages
         };
     }
 
@@ -35,7 +35,7 @@ public abstract class AbstractHandler<TRequest, TResponse> :
             new TResponse
             {
                 ErrorCode = statusCode,
-                ErrorMessages = errorMessages
+                ErrorMessage = errorMessages
             }
 
         };

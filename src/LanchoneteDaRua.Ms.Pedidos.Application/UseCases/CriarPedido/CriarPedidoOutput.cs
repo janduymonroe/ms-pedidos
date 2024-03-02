@@ -6,9 +6,9 @@ public class CriarPedidoOutput : Response
     {
         
     }
-    public Guid Id { get; set; }
     public CriarPedidoOutput(Guid id)
     {
         Id = id;
     }
+    public Guid Id { get; set; }
 }

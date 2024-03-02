@@ -1,4 +1,5 @@
-﻿using Amazon.SQS;
+﻿using System.Diagnostics.CodeAnalysis;
+using Amazon.SQS;
 using LanchoneteDaRua.Ms.Pedidos.Domain.Repositories;
 using LanchoneteDaRua.Ms.Pedidos.Infrastructure.Database;
 using LanchoneteDaRua.Ms.Pedidos.Infrastructure.MessageBus;
@@ -10,6 +11,7 @@ using MongoDB.Driver;
 
 namespace LanchoneteDaRua.Ms.Pedidos.Infrastructure;
 
+[ExcludeFromCodeCoverage]
 public static class InfrastructureModule
 {
     public static IServiceCollection AddInfraestructureLayer(this IServiceCollection services)

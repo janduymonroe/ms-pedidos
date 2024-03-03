@@ -14,7 +14,6 @@ public class AwsSqsClientSteps
     private string _queueUrl;
     private string _messageBody;
     private List<Message> _receivedMessages;
-    private bool _isSendMessageCalled;
     public AwsSqsClientSteps()
     {
         _awsSqsClient = new AwsSqsClient(_sqsClientMock.Object);

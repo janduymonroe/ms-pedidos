@@ -14,11 +14,10 @@ namespace LanchoneteDaRua.Ms.Pedidos.Tests.Application.UseCases.AtualizarStatusP
 [Binding]
 public sealed class AtualizarStatusPedidoSteps
 {
-    private Mock<IPedidoRepository> _mockPedidoRepository;
-    private AtualizarStatusPedidoHandler _handler;
+    private readonly Mock<IPedidoRepository> _mockPedidoRepository;
+    private readonly AtualizarStatusPedidoHandler _handler;
     private AtualizarStatusPedidoInput _input;
     private Response _response;
-    private Pedido _pedido;
 
     public AtualizarStatusPedidoSteps()
     {
@@ -37,7 +36,6 @@ public sealed class AtualizarStatusPedidoSteps
     [Given(@"o status atual do pedido é '(.*)'")]
     public async Task DadoOStatusAtualDoPedidoE(string status)
     {
-        _pedido = PedidoMock.PedidoFake();
         _input = PedidoMock.AtualizarStatusPedidoInputFake();
     }
     

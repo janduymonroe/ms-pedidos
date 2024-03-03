@@ -4,7 +4,6 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
@@ -12,6 +11,7 @@
     <ItemGroup>
         <PackageReference Include="AutoBogus.Moq" Version="2.13.1" />
         <PackageReference Include="FluentAssertions" Version="6.12.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.2" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
         <PackageReference Include="Moq" Version="4.20.70" />
         <PackageReference Include="SpecFlow" Version="3.9.74" />
@@ -25,6 +25,10 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+        <PackageReference Include="coverlet.msbuild" Version="6.0.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
@@ -35,8 +39,40 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Api\" />
       <Folder Include="Infrastructure\Repository\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Api\AtualizarPedidos\AtualizarPedidoHandler.feature.cs">
+        <DependentUpon>AtualizarPedidoHandler.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+      <Compile Update="Api\AtualizarStatusPedido\AtualizarStatusPedido.feature.cs">
+        <DependentUpon>AtualizarStatusPedido.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+      <Compile Update="Api\BuscarFilaDePedidos\BuscarFilaDePedidos.feature.cs">
+        <DependentUpon>BuscarFilaDePedidos.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+      <Compile Update="Api\BuscarPedidoId\BuscarPedidoPorId.feature.cs">
+        <DependentUpon>BuscarPedidoPorId.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+      <Compile Update="Api\CriarPedido\CriarPedido.feature.cs">
+        <DependentUpon>CriarPedido.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
     </ItemGroup>
 
 </Project>

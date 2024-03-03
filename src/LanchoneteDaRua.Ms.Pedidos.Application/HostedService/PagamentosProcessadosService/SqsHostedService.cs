@@ -1,5 +1,4 @@
-﻿using Amazon.SQS.Model;
-using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.AtualizarStatusPedido;
+﻿using LanchoneteDaRua.Ms.Pedidos.Application.UseCases.AtualizarStatusPedido;
 using LanchoneteDaRua.Ms.Pedidos.Infrastructure.MessageBus;
 using MediatR;
 using Microsoft.Extensions.Hosting;
@@ -11,7 +10,8 @@ public class SqsHostedService : IHostedService, IDisposable
 {
     private Timer _timer;
     private readonly IMessageBusClient _messageBusClient;
-    private IMediator _mediator;
+    private readonly IMediator _mediator;
+    private bool _disposed;
 
     public SqsHostedService(IMessageBusClient messageBusClient, IMediator mediator)
     {
@@ -45,8 +45,21 @@ public class SqsHostedService : IHostedService, IDisposable
         return Task.CompletedTask;
     }
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                _timer?.Dispose();
+            }
+            _disposed = true;
+        }
+    }
+    
     public void Dispose()
     {
-        _timer?.Dispose();
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }

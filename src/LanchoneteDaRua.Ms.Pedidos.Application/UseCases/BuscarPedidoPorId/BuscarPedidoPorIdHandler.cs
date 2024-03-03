@@ -22,7 +22,7 @@ public class BuscarPedidoPorIdHandler : AbstractHandler<BuscarPedidoPorIdInput, 
             return new BuscarPedidoPorIdOutput
             {
                 ErrorCode = HttpStatusCode.NotFound,
-                ErrorMessages = ""
+                ErrorMessage = ""
             };
         }
 

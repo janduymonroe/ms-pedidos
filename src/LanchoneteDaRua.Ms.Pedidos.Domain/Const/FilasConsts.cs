@@ -1,6 +1,6 @@
 ﻿namespace LanchoneteDaRua.Ms.Pedidos.Domain.Const;
 
-public class FilasConsts
+public static class FilasConsts
 {
     public const string PedidoParaPagamento = "pedido-para-pagamento"; 
 }

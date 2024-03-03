@@ -33,7 +33,7 @@ public static class PedidoMock
         
         var items = new List<PedidoItemInput>
         {
-            new PedidoItemInput{IdProduto = Guid.NewGuid(), Quantidade = 8, Preco = 152m},
+            new (){IdProduto = Guid.NewGuid(), Quantidade = 8, Preco = 152m},
         };
 
         return new CriarPedidoInput

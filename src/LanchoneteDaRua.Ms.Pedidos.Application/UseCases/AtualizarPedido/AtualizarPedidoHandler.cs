@@ -33,7 +33,7 @@ public class AtualizarPedidoHandler : AbstractHandler<AtualizarPedidoInput, Atua
         }
         catch (MongoException ex)
         {
-            return new AtualizarPedidoOutput {ErrorCode = HttpStatusCode.InternalServerError, ErrorMessages = $"Erro ao atualizar pedido - {ex.Message}"};
+            return new AtualizarPedidoOutput {ErrorCode = HttpStatusCode.InternalServerError, ErrorMessage = $"Erro ao atualizar pedido - {ex.Message}"};
         }
         
         _eventProcessor.Process(pedido.Events);

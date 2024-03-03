@@ -26,7 +26,7 @@ public class CriarPedidoHandler : AbstractHandler<CriarPedidoInput, CriarPedidoO
         }
         catch (MongoException ex)
         {
-            return new CriarPedidoOutput {ErrorCode = HttpStatusCode.InternalServerError, ErrorMessages = $"Erro ao criar pedido - {ex.Message}"};
+            return new CriarPedidoOutput{ErrorCode = HttpStatusCode.InternalServerError, ErrorMessage = $"Erro ao criar pedido - {ex.Message}"};
         }
         
         _eventProcessor.Process(order.Events);

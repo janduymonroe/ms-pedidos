@@ -1,7 +1,7 @@
+using System.Diagnostics.CodeAnalysis;
 using LanchoneteDaRua.Ms.Pedidos.Api;
 using LanchoneteDaRua.Ms.Pedidos.Application;
 using LanchoneteDaRua.Ms.Pedidos.Infrastructure;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,11 +13,6 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddApiLayer();
 builder.Services.AddApplicationLayer();
 builder.Services.AddInfraestructureLayer();
-
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-});
 
 var app = builder.Build();
 
@@ -35,4 +30,10 @@ app.UseEndpoints(endpoints =>
 app.UseHttpsRedirection();
 
 app.Run();
+
+[ExcludeFromCodeCoverage]
+public partial class Program
+{
+    private Program() { }
+}
 

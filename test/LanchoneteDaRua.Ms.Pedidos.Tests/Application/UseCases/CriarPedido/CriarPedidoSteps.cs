@@ -18,8 +18,8 @@ namespace LanchoneteDaRua.Ms.Pedidos.Tests.Application.UseCases.CriarPedido;
 public class CriarPedidoSteps
 {
     private CriarPedidoHandler _handler;
-    private Mock<IPedidoRepository> _mockPedidoRepository;
-    private Mock<IEventProcessor> _mockEventProcessor;
+    private readonly Mock<IPedidoRepository> _mockPedidoRepository;
+    private readonly Mock<IEventProcessor> _mockEventProcessor;
     private CriarPedidoInput _input;
     private CriarPedidoOutput _output;
 
